@@ -1,5 +1,5 @@
 module Metaa
-  class MetaCollection
+  class TagCollection
     attr_reader :items
 
     def initialize(items = [])
@@ -8,7 +8,7 @@ module Metaa
 
     def add(item)
       if item.is_a? Hash
-        item = Meta.new(item)
+        item = Tag.new(item)
       end
       @items << item
     end

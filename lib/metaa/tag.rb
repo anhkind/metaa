@@ -1,7 +1,7 @@
 require 'action_view'
 
 module Metaa
-  class Meta
+  class Tag
     include ActionView::Helpers::TagHelper
     attr_reader :attributes
 
