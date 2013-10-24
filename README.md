@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/anhkind/metaa.png)](https://travis-ci.org/anhkind/metaa)
+
 # Metaa
 
 Add meta tags to your page with ease
