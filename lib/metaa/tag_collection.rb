@@ -17,7 +17,7 @@ module Metaa
     end
 
     def html
-      tags.map(&:html).join
+      tags.map(&:html).join.html_safe
     end
   end
 end
