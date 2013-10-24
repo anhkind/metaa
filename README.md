@@ -2,7 +2,7 @@
 
 # Metaa
 
-Add meta tags to your page with ease
+Metaa adds meta tags to your Rails application with ease.
 
 ## Installation
 
