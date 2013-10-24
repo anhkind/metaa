@@ -1,6 +1,6 @@
 # Metaa
 
-TODO: Write a gem description
+Add meta tags to your page with ease
 
 ## Installation
 
