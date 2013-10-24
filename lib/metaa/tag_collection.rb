@@ -1,20 +1,23 @@
 module Metaa
   class TagCollection
-    attr_reader :items
-
-    def initialize(items = [])
-      @items = items
+    def initialize(tags = [])
+      add(tags)
     end
 
-    def add(item)
-      if item.is_a? Hash
-        item = Tag.new(item)
+    def add(new_tags)
+      new_tags = [new_tags] if !new_tags.is_a? Array
+      new_tags.each do |tag|
+        tag = Tag.new(tag) if !tag.is_a?(Tag)
+        tags << tag
       end
-      @items << item
+    end
+
+    def tags
+      @tags ||= []
     end
 
     def html
-      @items.map(&:html).join
+      tags.map(&:html).join
     end
   end
 end

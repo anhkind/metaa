@@ -1,5 +1,3 @@
-require 'action_view'
-
 module Metaa
   class Tag
     include ActionView::Helpers::TagHelper
