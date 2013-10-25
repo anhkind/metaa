@@ -3,7 +3,6 @@ require 'action_view'
 require "metaa/version"
 require 'metaa/tag'
 require 'metaa/tag_collection'
-require 'metaa/view_helper'
 require 'metaa/definition'
 require 'metaa/meta'
 require 'metaa/concern'
@@ -22,5 +21,3 @@ module Metaa
     end
   end
 end
-
-ActionView::Base.send :include, Metaa::ViewHelpers
