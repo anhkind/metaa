@@ -23,7 +23,11 @@ module Metaa
         end
       )
 
-      @tag_collection.html
+      @tag_collection.tags
+    end
+
+    def html
+      tags.map(&:html).join.html_safe
     end
   end
 end

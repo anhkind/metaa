@@ -39,7 +39,27 @@ module Metaa
         object_mock = double title: 'a title'
         meta        = klass.new(object_mock)
 
-        expect(meta.tags).to eq "<meta content=\"a title\" name=\"title\" property=\"text\" />"
+        expect(meta.tags.length).to eq 1
+
+        tag = meta.tags.first
+        expect(tag.html).to eq "<meta content=\"a title\" name=\"title\" property=\"text\" />"
+      end
+    end
+
+    describe '#html' do
+      it 'returns the meta html tags for an object' do
+        klass = Class.new(Meta)
+
+        klass.class_eval do
+          meta  name:     'title',
+                property: :text,
+                content:  ->(object){ object.title }
+        end
+
+        object_mock = double title: 'a title'
+        meta        = klass.new(object_mock)
+
+        expect(meta.html).to eq "<meta content=\"a title\" name=\"title\" property=\"text\" />"
       end
     end
   end

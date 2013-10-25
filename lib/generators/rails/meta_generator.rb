@@ -8,7 +8,7 @@ module Rails
 
       class_option :parent, type: :string, desc: "The parent class for the generated meta"
 
-      def create_decorator_file
+      def create_meta_file
         template 'meta.rb', File.join('app/meta', class_path, "#{file_name}_meta.rb")
       end
 
