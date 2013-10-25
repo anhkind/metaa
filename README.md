@@ -16,9 +16,9 @@ rails generate meta Product
 
 This will generate `ProductMeta` meta class in your app/meta folder.
 
-## Meta Class
+## Meta definition
 
-After generated the meta class, it will be look like:
+After generated, the meta class will look like this:
 
 ```
 # app/meta/product_meta.rb
@@ -33,8 +33,13 @@ class ProductMeta < Metaa::Meta
 end
 ```
 
-You can define multiple meta tags by writing the DSL `meta` multiple times.
+You can define meta tags multiple times and these tags will be displayed in the order you define in meta class.
 
+To access to the final rendered html, just use method `meta_tags` on your instance
+
+```
+product.meta_tags
+```
 
 ## Installation
 
