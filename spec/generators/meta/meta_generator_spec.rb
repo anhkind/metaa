@@ -18,10 +18,10 @@ describe Rails::Generators::MetaGenerator do
       it { should contain "class YourModelMeta" }
     end
 
-    describe "content example" do
+    describe "define_meta method" do
       before { run_generator %w(YourModel) }
 
-      it { should contain "your_model" }
+      it { should contain "def define_meta" }
     end
 
     describe "namespacing" do

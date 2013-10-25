@@ -1,33 +1,38 @@
 module Metaa
   class Meta
-    class << self
-      def meta(attributes = {})
-        definitions << Definition.new(attributes)
-      end
-
-      def definitions
-        @definitions ||= []
-      end
-    end
-
     attr_reader :object
 
-    def initialize(object)
+    def initialize(object = nil)
       @object = object
     end
 
-    def tags
-      @tag_collection ||= TagCollection.new(
-        self.class.definitions.map do |definition|
-          definition.attributes_for(object)
-        end
-      )
+    def meta(attributes = {})
+      definitions << Definition.new(attributes)
+    end
 
-      @tag_collection.tags
+    def definitions
+      @definitions ||= []
+    end
+
+    # lazy define meta tags then collect
+    def tags
+      @tags ||= begin
+        define_meta
+        collect_tags
+      end
     end
 
     def html
       tags.map(&:html).join.html_safe
+    end
+
+    private
+    def collect_tags
+      TagCollection.new(
+        definitions.map do |definition|
+          definition.attributes_for(object)
+        end
+      ).tags
     end
   end
 end

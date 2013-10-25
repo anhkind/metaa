@@ -23,11 +23,13 @@ After generated the meta class, it will be look like:
 ```
 # app/meta/product_meta.rb
 class ProductMeta < Metaa::Meta
-  # Define meta tags of your record here. Each definition will require a hash for the meta attributes,
-  #  and each attribute can be a string, symbol or lambda/proc, for example:
-  # meta name:    "title",
-  #      content: ->(product){ product.title } # you can also use lambda or proc
+  def define_meta
+    # Define meta tags of your record here. Each definition will require a hash for the meta attributes,
+    #  and each attribute can be a string, symbol or lambda/proc, for example:
+    # meta name:    "title",
+    #      content: object.title # you can access the record through 'object' variable
 
+  end
 end
 ```
 
