@@ -8,13 +8,12 @@ Gem::Specification.new do |gem|
   gem.version       = Metaa::VERSION
   gem.authors       = ["anhkind"]
   gem.email         = ["anhkind@gmail.com"]
-  gem.description   = "Metaa adds meta tags to your Rails application with ease"
-  gem.summary       = "Meta tags with ease"
+  gem.description   = "Metaa adds meta tags to your Rails application with ease."
+  gem.summary       = "Meta tags with ease."
   gem.homepage      = "https://github.com/anhkind/metaa"
 
   gem.add_dependency 'activesupport',   '>= 3.0'
   gem.add_dependency 'actionpack',      '>= 3.0'
-  gem.add_dependency 'activemodel',      '>= 3.0'
 
   gem.add_development_dependency 'ammeter'
   gem.add_development_dependency 'rake',          '>= 0.9.2'
