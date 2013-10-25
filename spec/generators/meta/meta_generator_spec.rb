@@ -51,4 +51,23 @@ describe Rails::Generators::MetaGenerator do
       end
     end
   end
+
+  context "with -t=rspec" do
+    describe "the generated spec" do
+      subject { file("spec/meta/your_model_meta_spec.rb") }
+
+      describe "naming" do
+        before { run_generator %w(YourModel -t=rspec) }
+
+        it { should contain "describe YourModelMeta" }
+      end
+
+      describe "namespacing" do
+        subject { file("spec/meta/namespace/your_model_meta_spec.rb") }
+        before { run_generator %w(Namespace::YourModel -t=rspec) }
+
+        it { should contain "describe Namespace::YourModelMeta" }
+      end
+    end
+  end
 end
