@@ -15,7 +15,6 @@ module Rails
       hook_for :test_framework
 
       private
-
       def parent_class_name
         options.fetch("parent") do
           begin
@@ -25,6 +24,10 @@ module Rails
             "Metaa::Meta"
           end
         end
+      end
+
+      def object_name
+        class_name.to_s.underscore
       end
 
       # Rails 3.0.X compatibility, stolen from https://github.com/jnunemaker/mongomapper/pull/385/files#L1R32

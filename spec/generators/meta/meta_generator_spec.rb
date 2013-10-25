@@ -18,6 +18,12 @@ describe Rails::Generators::MetaGenerator do
       it { should contain "class YourModelMeta" }
     end
 
+    describe "content example" do
+      before { run_generator %w(YourModel) }
+
+      it { should contain "your_model" }
+    end
+
     describe "namespacing" do
       subject { file("app/meta/namespace/your_model_meta.rb") }
       before { run_generator %w(Namespace::YourModel) }
