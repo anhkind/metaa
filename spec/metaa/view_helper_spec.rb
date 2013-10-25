@@ -34,7 +34,6 @@ module Metaa
 
         expect(subject.display_meta_tags).to eq "<meta content=\"abc\" name=\"keywords\" />"
       end
-
     end
   end
 end
