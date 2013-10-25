@@ -21,7 +21,7 @@ module Metaa
 
     describe "#meta_tags" do
       it "returns html meta tags for self" do
-        meta_mock = double :meta, html: "<meta content=\"a title\" name=\"title\" property=\"text\" />"
+        meta_mock = double :meta, to_html: "<meta content=\"a title\" name=\"title\" property=\"text\" />"
         model     = Model.new
         model.stub meta: meta_mock
 

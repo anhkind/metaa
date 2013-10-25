@@ -7,7 +7,7 @@ module Metaa
     end
 
     def meta_tags
-      meta.html
+      meta.to_html
     end
 
     # (see ClassMethods#meta_class)

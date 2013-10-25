@@ -38,7 +38,7 @@ module Metaa
         expect(meta.tags.length).to eq 1
 
         tag = meta.tags.first
-        expect(tag.html).to eq "<meta content=\"a title\" name=\"title\" property=\"text\" />"
+        expect(tag.to_html).to eq "<meta content=\"a title\" name=\"title\" property=\"text\" />"
       end
     end
 
@@ -55,7 +55,7 @@ module Metaa
 
         meta = klass.new(object_mock)
 
-        expect(meta.html).to eq "<meta content=\"a title\" name=\"title\" property=\"text\" />"
+        expect(meta.to_html).to eq "<meta content=\"a title\" name=\"title\" property=\"text\" />"
       end
     end
   end

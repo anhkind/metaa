@@ -66,7 +66,7 @@ ruby_object.respond_to? :title #=> true
 meta_object = NonActiveRecordModelMeta.new(ruby_object)
 
 # access rendered html of the defined meta tags
-meta_object.html
+meta_object.to_html
 ```
 
 ## Installation

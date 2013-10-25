@@ -7,7 +7,7 @@ module Metaa
       @attributes = attributes
     end
 
-    def html
+    def to_html
       tag(:meta, @attributes)
     end
   end

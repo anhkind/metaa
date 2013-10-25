@@ -2,9 +2,11 @@ require 'spec_helper'
 
 module Metaa
   describe Tag do
-    it 'converts a meta tag to html' do
-      tag = Tag.new({name: 'keywords', content: 'abc'})
-      expect(tag.html).to eq "<meta content=\"abc\" name=\"keywords\" />"
+    describe '#to_html' do
+      it 'converts a meta tag to html' do
+        tag = Tag.new({name: 'keywords', content: 'abc'})
+        expect(tag.to_html).to eq "<meta content=\"abc\" name=\"keywords\" />"
+      end
     end
   end
 end

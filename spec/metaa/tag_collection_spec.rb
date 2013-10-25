@@ -16,14 +16,14 @@ module Metaa
       end
     end
 
-    describe '#html' do
+    describe '#to_html' do
       it 'converts list of meta objects to html' do
         meta_list = [
           Tag.new({name: 'keywords', content: 'abc'}),
           Tag.new({name: 'keywords', content: '123, 456'})
         ]
         meta_collection = TagCollection.new(meta_list)
-        expect(meta_collection.html).to eq "<meta content=\"abc\" name=\"keywords\" /><meta content=\"123, 456\" name=\"keywords\" />"
+        expect(meta_collection.to_html).to eq "<meta content=\"abc\" name=\"keywords\" /><meta content=\"123, 456\" name=\"keywords\" />"
       end
     end
   end

@@ -22,8 +22,8 @@ module Metaa
       end
     end
 
-    def html
-      tags.map(&:html).join.html_safe
+    def to_html
+      tags.map(&:to_html).join.html_safe
     end
 
     private
