@@ -1,26 +1,47 @@
 [![Build Status](https://travis-ci.org/anhkind/metaa.png)](https://travis-ci.org/anhkind/metaa)
 
-# Metaa
+# Metaa: meta tags with ease
 
 Metaa adds meta tags to your Rails application with ease.
 
+With Metaa, you can easily add meta tags to your current model with simple DSL, then render these tags on your views with a single method.
+
+## Generator
+
+The command is simple, just add the model you want to create the meta for:
+
+```
+rails generate meta Product
+```
+
+This will generate `ProductMeta` meta class in your app/meta folder.
+
+## Meta Class
+
+After generated the meta class, it will be look like:
+
+```
+# app/meta/product_meta.rb
+class ProductMeta < Metaa::Meta
+  # Define meta tags of your record here. Each definition will require a hash for the meta attributes,
+  #  and each attribute can be a string, symbol or lambda/proc, for example:
+  # meta name:    "title",
+  #      content: ->(product){ product.title } # you can also use lambda or proc
+
+end
+```
+
+You can define multiple meta tags by writing the DSL `meta` multiple times.
+
+
 ## Installation
 
-Add this line to your application's Gemfile:
+Add Metaa to your Gemfile:
 
     gem 'metaa'
 
-And then execute:
+And run bundle install within your app's directory.
 
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install metaa
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
