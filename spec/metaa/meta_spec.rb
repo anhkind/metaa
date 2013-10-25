@@ -35,9 +35,10 @@ module Metaa
         object_mock = double title: 'a title'
         meta        = klass.new(object_mock)
 
-        expect(meta.tags.length).to eq 1
 
-        tag = meta.tags.first
+        expect(meta.tag_collection.tags.length).to eq 1
+
+        tag = meta.tag_collection.tags.first
         expect(tag.to_html).to eq "<meta content=\"a title\" name=\"title\" property=\"text\" />"
       end
     end

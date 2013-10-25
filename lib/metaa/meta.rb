@@ -15,24 +15,19 @@ module Metaa
     end
 
     # lazy define meta tags then collect
-    def tags
-      @tags ||= begin
+    def tag_collection
+      @tag_collection ||= begin
         define_meta
-        collect_tags
+        TagCollection.new(
+          definitions.map do |definition|
+            definition.attributes_for(object)
+          end
+        )
       end
     end
 
     def to_html
-      tags.map(&:to_html).join.html_safe
-    end
-
-    private
-    def collect_tags
-      TagCollection.new(
-        definitions.map do |definition|
-          definition.attributes_for(object)
-        end
-      ).tags
+      tag_collection.to_html
     end
   end
 end
