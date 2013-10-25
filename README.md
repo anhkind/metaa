@@ -35,10 +35,38 @@ end
 
 You can define meta tags multiple times and these tags will be displayed in the order you define in meta class.
 
-To access to the final rendered html, just use method `meta_tags` on your instance
+To access to the rendered html, just use method `meta_tags` on your ActiveRecord instance:
 
 ```
 product.meta_tags
+```
+All ActiveRecord instances will have this behavior if appropriate meta class is defined, e.g. `ProductMeta` for model `Product`.
+
+## Non ActiveRecord
+
+With non ActiveRecord instances, you can still generate the meta class and define the meta tags normally with any class name. However, you have to handle the meta object manually:
+
+```
+# app/meta/non_active_record_model_meta.rb
+class NonActiveRecordModelMeta < Metaa::Meta
+  def define_meta
+    meta name:    "title",
+         content: object.title
+
+  end
+end
+
+...
+
+ruby_object.respond_to? :title #=> true
+
+...
+
+# create meta object from ruby_object
+meta_object = NonActiveRecordModelMeta.new(ruby_object)
+
+# access rendered html of the defined meta tags
+meta_object.html
 ```
 
 ## Installation
