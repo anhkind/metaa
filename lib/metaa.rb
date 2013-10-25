@@ -7,6 +7,7 @@ require 'metaa/view_helper'
 require 'metaa/definition'
 require 'metaa/meta'
 require 'metaa/concern'
+require 'metaa/railtie' if defined?(Rails)
 
 module Metaa
   def self.setup_orm(base)
