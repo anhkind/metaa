@@ -2,9 +2,8 @@ require 'spec_helper'
 
 module Metaa
   describe Concern do
-
-    describe "#meta_tags" do
-      it "returns meta tags for self" do
+    describe "meta" do
+      it "returns meta object for self" do
         model = Model.new
         meta = model.meta
 
@@ -17,6 +16,18 @@ module Metaa
         model.stub meta_class: OtherMeta
 
         expect(model.meta).to be_an_instance_of OtherMeta
+      end
+    end
+
+    describe "#meta_tags" do
+      it "returns html meta tags for self" do
+        meta_mock = double :meta, html: "<meta content=\"a title\" name=\"title\" property=\"text\" />"
+        model     = Model.new
+        model.stub meta: meta_mock
+
+        html = model.meta_tags
+
+        expect(html).to eq "<meta content=\"a title\" name=\"title\" property=\"text\" />"
       end
     end
 

@@ -3,7 +3,11 @@ module Metaa
     extend ActiveSupport::Concern
 
     def meta
-      meta_class.new(self)
+      @meta ||= meta_class.new(self)
+    end
+
+    def meta_tags
+      meta.html
     end
 
     # (see ClassMethods#meta_class)
