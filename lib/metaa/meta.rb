@@ -6,27 +6,20 @@ module Metaa
       @object = object
     end
 
-    def meta(attributes = {})
-      definitions << Definition.new(attributes)
-    end
-
-    def definitions
-      @definitions ||= []
-    end
-
-    # lazy define meta tags then collect
     def tag_collection
-      @tag_collection ||= begin
-        define_meta
-        TagCollection.new(
-          definitions.map do |definition|
-            definition.attributes_for(object)
-          end
-        )
-      end
+      @tag_collection ||= TagCollection.new
+    end
+
+    def meta(attributes = {})
+      tag_collection.add(attributes)
+    end
+
+    def define_meta
+      raise NotImplementedError
     end
 
     def to_html
+      define_meta if tag_collection.empty?
       tag_collection.to_html
     end
   end

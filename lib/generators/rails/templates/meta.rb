@@ -5,8 +5,8 @@ class <%= class_name %>Meta < <%= parent_class_name %>
 class <%= class_name %>
   <%- end -%>
   def define_meta
-    # Define meta tags of your record here. Each definition will require a hash for the meta attributes,
-    #  and each attribute can be a string, symbol or lambda/proc, for example:
+    # Define meta tags of your record here.
+    # Each definition will require a hash for the meta attributes, for example:
     # meta name:    "title",
     #      content: object.title # you can access to the model through 'object' method
 

@@ -4,25 +4,20 @@ module Metaa
   describe Meta do
     describe '#meta' do
       it 'defines a meta tag' do
-        klass = Class.new(Meta) do
-          def define_meta
-            meta name: 'title'
-          end
-        end
+        meta_obj = Class.new(Meta).new
+        meta_obj.meta name: 'title'
 
-        meta_obj = klass.new
-        meta_obj.define_meta # trigger due to lazy load
+        tags = meta_obj.tag_collection.tags
+        expect(tags.length).to eq 1
 
-        expect(meta_obj.definitions.length).to eq 1
-
-        definition = meta_obj.definitions.first
-        expect(definition.attributes).to eq({
+        tag = tags.first
+        expect(tag.attributes).to eq({
           name: 'title'
         })
       end
     end
 
-    describe '#tags' do
+    describe '#tag_collection' do
       it 'returns meta tags for an object' do
         klass = Class.new(Meta) do
           def define_meta
@@ -35,11 +30,7 @@ module Metaa
         object_mock = double title: 'a title'
         meta        = klass.new(object_mock)
 
-
-        expect(meta.tag_collection.tags.length).to eq 1
-
-        tag = meta.tag_collection.tags.first
-        expect(tag.to_html).to eq "<meta content=\"a title\" name=\"title\" property=\"text\" />"
+        expect(meta.tag_collection).to be_a TagCollection
       end
     end
 
@@ -56,6 +47,9 @@ module Metaa
 
         meta = klass.new(object_mock)
 
+        expect(meta.to_html).to eq "<meta content=\"a title\" name=\"title\" property=\"text\" />"
+
+        # run it again would render the same result
         expect(meta.to_html).to eq "<meta content=\"a title\" name=\"title\" property=\"text\" />"
       end
     end

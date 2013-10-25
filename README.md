@@ -24,8 +24,8 @@ After generated, the meta class will look like this:
 # app/meta/product_meta.rb
 class ProductMeta < Metaa::Meta
   def define_meta
-    # Define meta tags of your record here. Each definition will require a hash for the meta attributes,
-    #  and each attribute can be a string, symbol or lambda/proc, for example:
+    # Define meta tags of your record here.
+    # Each definition will require a hash for the meta attributes, for example:
     # meta name:    "title",
     #      content: object.title # you can access the record through 'object' variable
 

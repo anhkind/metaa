@@ -3,7 +3,6 @@ require 'action_view'
 require "metaa/version"
 require 'metaa/tag'
 require 'metaa/tag_collection'
-require 'metaa/definition'
 require 'metaa/meta'
 require 'metaa/concern'
 require 'metaa/railtie' if defined?(Rails)
