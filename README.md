@@ -76,7 +76,7 @@ ruby_object.title  #=> "a title"
 # create meta object from ruby_object
 meta_object = NonActiveRecordModelMeta.new(ruby_object)
 
-access to the rendered html
+# access to the rendered html
 meta_object.to_html #=> "<meta content=\"a title\" name=\"title\" />"
 ```
 
