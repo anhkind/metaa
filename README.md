@@ -20,7 +20,7 @@ This will generate `ProductMeta` meta class in your app/meta folder.
 
 After generated, the meta class will look like this:
 
-```
+```ruby
 # app/meta/product_meta.rb
 class ProductMeta < Metaa::Meta
   def define_meta
@@ -37,7 +37,7 @@ You can define meta tags multiple times and these tags will be displayed in the 
 
 To access to the rendered html, just use method `meta_tags` on your ActiveRecord instance:
 
-```
+```ruby
 product.meta_tags
 ```
 All ActiveRecord instances will have this behavior if appropriate meta class is defined, e.g. `ProductMeta` for model `Product`.
@@ -46,7 +46,7 @@ All ActiveRecord instances will have this behavior if appropriate meta class is 
 
 With non ActiveRecord instances, you can still generate the meta class and define the meta tags normally with any class name. However, you have to handle the meta object manually:
 
-```
+```ruby
 # app/meta/non_active_record_model_meta.rb
 class NonActiveRecordModelMeta < Metaa::Meta
   def define_meta
@@ -55,18 +55,16 @@ class NonActiveRecordModelMeta < Metaa::Meta
 
   end
 end
-
 ...
 
-ruby_object.respond_to? :title #=> true
-
+ruby_object.title  #=> "a title"
 ...
 
 # create meta object from ruby_object
 meta_object = NonActiveRecordModelMeta.new(ruby_object)
 
 # access rendered html of the defined meta tags
-meta_object.to_html
+meta_object.to_html #=> "<meta content=\"a title\" name=\"title\" />"
 ```
 
 ## Installation
