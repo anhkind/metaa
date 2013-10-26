@@ -16,10 +16,6 @@ rails generate meta Product
 
 This will generate `ProductMeta` meta class in your app/meta folder.
 
-## Meta definition
-
-After generated, the meta class will look like this:
-
 ```ruby
 # app/meta/product_meta.rb
 class ProductMeta < Metaa::Meta
@@ -33,13 +29,31 @@ class ProductMeta < Metaa::Meta
 end
 ```
 
-You can define meta tags multiple times and these tags will be displayed in the order you define in meta class.
+## Meta definition
 
-To access to the rendered html, just use method `meta_tags` on your ActiveRecord instance:
+We can define the meta tags as following:
 
 ```ruby
-product.meta_tags
+# app/meta/product_meta.rb
+class ProductMeta < Metaa::Meta
+  def define_meta
+    meta name:    "title",
+         content:  object.title
+        
+    # You can define multiple meta tags in order
+    meta name:    "description",  
+         content:  object.description
+  end
+end
+...
+
+product.title       #=> "product title"
+product.description #=> "product description"
+
+# access to the rendered html
+product.meta_tags   #=> "<meta content=\"product title\" name=\"title\" /><meta content=\"product description\" name=\"description\" />"
 ```
+
 All ActiveRecord instances will have this behavior if appropriate meta class is defined, e.g. `ProductMeta` for model `Product`.
 
 ## Non ActiveRecord
@@ -58,14 +72,15 @@ end
 ...
 
 ruby_object.title  #=> "a title"
-...
 
 # create meta object from ruby_object
 meta_object = NonActiveRecordModelMeta.new(ruby_object)
 
-# access rendered html of the defined meta tags
+access to the rendered html
 meta_object.to_html #=> "<meta content=\"a title\" name=\"title\" />"
 ```
+
+Notice that we use `meta_tags` method on ActiveRecord instances instead of `to_html` method on the meta objects in order to avoid method name conflicts on your models.
 
 ## Installation
 
