@@ -15,7 +15,7 @@ module Metaa
     end
 
     def define_meta
-      raise NotImplementedError
+      # do nothing
     end
 
     def to_html
