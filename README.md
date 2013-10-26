@@ -6,6 +6,12 @@ Metaa adds meta tags to your Rails application with ease.
 
 With Metaa, you can easily add meta tags to your current model with simple DSL, then render these tags on your views with a single method.
 
+## Installation
+
+Add Metaa to your Gemfile:
+
+    gem 'metaa'
+    
 ## Generator
 
 The command is simple, just add the model you want to create the meta for:
@@ -81,14 +87,6 @@ meta_object.to_html #=> "<meta content=\"a title\" name=\"title\" />"
 ```
 
 Notice that we use `meta_tags` method on ActiveRecord instances instead of `to_html` method on the meta objects in order to avoid method name conflicts on your models.
-
-## Installation
-
-Add Metaa to your Gemfile:
-
-    gem 'metaa'
-
-And run bundle install within your app's directory.
 
 
 ## Contributing
