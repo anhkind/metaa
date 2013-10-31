@@ -89,6 +89,8 @@ meta_object.to_html #=> "<meta content=\"a title\" name=\"title\" />"
 
 Notice that we use `meta_tags` method on ActiveRecord instances instead of `to_html` method on the meta objects in order to avoid method name conflicts on your models.
 
+## License
+MIT
 
 ## Contributing
 
