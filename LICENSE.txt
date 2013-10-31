@@ -1,4 +1,4 @@
-Copyright (c) 2013 anguyen
+Copyright (c) 2013 Anh Nguyen (anhkind@gmail.com)
 
 MIT License
 
