@@ -11,6 +11,7 @@ Gem::Specification.new do |gem|
   gem.description   = "Metaa adds meta tags to your Rails application with ease."
   gem.summary       = "Meta tags with ease."
   gem.homepage      = "https://github.com/anhkind/metaa"
+  gem.license       = "MIT" 
 
   gem.add_dependency 'activesupport',   '>= 3.0'
   gem.add_dependency 'actionpack',      '>= 3.0'
