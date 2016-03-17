@@ -1,5 +1,6 @@
 [![Gem Version](https://badge.fury.io/rb/metaa.png)](http://badge.fury.io/rb/metaa)
 [![Build Status](https://travis-ci.org/anhkind/metaa.png)](https://travis-ci.org/anhkind/metaa)
+[![Code Climate](https://codeclimate.com/github/anhkind/metaa/badges/gpa.svg)](https://codeclimate.com/github/anhkind/metaa)
 
 # Metaa: meta tags with ease
 
